@@ -121,3 +121,63 @@
     
 </body>
 </html>
+
+ <!-- Introduction
+Hello everyone, today I’ll be presenting the tip calculator project I've been working on. This tool helps calculate the total bill amount, including a tip based on user input for the bill amount.
+
+Project Overview:
+
+User Input Handling:
+The user inputs the bill amount and the tip percentage into designated fields.
+
+let BillAmountUserInput = BillAmountElement.value;
+let PercentageTipUserInput = PercentageTipElement.value;
+
+Validation:
+We check if the inputs are provided. If not, an error message is displayed.
+
+if (BillAmountUserInput === "") {
+    ErrorMessageElement.textContent = "Please enter the bill amount.";
+} else if (PercentageTipUserInput === "") {
+    ErrorMessageElement.textContent = "Please enter the tip percentage.";
+} else {
+    ErrorMessageElement.textContent = "";
+
+ Parsing Inputs:
+The inputs are converted from strings to integers using parseInt for accurate calculations.
+
+let getUserBillAmount = parseInt(BillAmountUserInput);
+let getTipAmount = parseInt(PercentageTipUserInput);
+
+Calculating Tip and Total Amount:
+The tip amount and the total bill amount are calculated.
+
+let TotalTipAmount = (getUserBillAmount * getTipAmount) / 100;
+let TotalAmount = TotalTipAmount + getUserBillAmount;
+
+Displaying Results:
+The calculated amounts are displayed to the user.
+javascript
+Copy code
+TipAmountElement.value = TotalTipAmount;
+TotalBillElement.value = TotalAmount;
+
+
+Conclusion
+This project demonstrates how to handle user input, validate it, parse it to integers, and perform calculations to derive the desired output. The conditions ensure the tool is user-friendly and robust.
+
+Thank you for your attention. I'm now open to any questions you might have.
+
+
+
+
+--> 
+
+
+
+
+
+
+
+
+
