@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .bg-container{
+            max-width: 600px;
+            margin: auto;
+        }
+        .tip-calculator-image{
+            width: 600px;
+        }
+        .main-heading{
+            font-size: 50px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #164687
+        }
+        .input-label{
+            color: grey;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .userinput{
+            height: 40px;
+            width: 600px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #cbd2d9;
+            border-radius: 4px;
+            padding-left: 12px;
+        }
+        .Calculate-tip-button{
+            font-family: "Roboto";
+           
+            
+        }
+       .Error-message{
+            color: #cf1124;
+            font-family: "Roboto";
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 10px;
+       }
+
+
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+        <div>
+            <img class="tip-calculator-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/tip-calculator-img.png" />
+            <h1 class="main-heading text-center mt-4 mb-4">Tip Calculator</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+            <div class="col-12 col-md-6 mb-4" >
+            <label class="input-label mb-2">BILL AMOUNT</label>
+            <input type="text" class="userinput" id="BillAmount">
+            </div>
+            <div class="row">
+            <div class="col-12 col-md-6 mb-4" >
+                <label class="input-label mb-2">PERCENTAGE TIP</label>
+                <input type="text" class="userinput" id="PercentageTip">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4" >
+                    <label class="input-label mb-2">TIP AMOUNT</label>
+                    <input type="text" class="userinput" id="TipAmount">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-4" >
+                        <label class="input-label mb-2">TOTAL</label>
+                        <input type="text" class="userinput" id="Total">
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button class=" Calculate-tip-button btn btn-lg btn-primary" onclick="CalculateTotalBillAmount()">CALCULATE</button>
+                            <p class="Error-message" id="errormessage"></p>
+                        </div>
+                    </div>     
+            </div>
+        </div >
+    </div>
+    <script>
+        let BillAmountElement =document.getElementById("BillAmount");
+        let PercentageTipElement =document.getElementById("PercentageTip");
+        let TipAmountElement =document.getElementById("TipAmount");
+        let TotalBillElement =document.getElementById("Total");
+        let ErrorMessageElement =document.getElementById("errormessage");
+
+        let errormessage = "Please! Enter a Valid Input";
+
+        function CalculateTotalBillAmount(){
+            let BillAmountUserInput =BillAmountElement.value;
+            let PercentageTipUserInput =PercentageTipElement.value;
+          
+           if (BillAmountUserInput ==="") {
+            ErrorMessageElement.textContent=errormessage;
+           }else if(PercentageTipUserInput===""){
+            ErrorMessageElement.textContent=errormessage;
+           }else{
+            ErrorMessageElement.textContent= "";
+            let getUserBillAmount= parseInt(BillAmountUserInput);
+            let getTipAmount= parseInt(PercentageTipUserInput);
+
+            let TotalTipAmount=(getUserBillAmount*getTipAmount)/100;
+            let TotalAmount=getTipAmount+getUserBillAmount;
+
+            TipAmountElement.value=TotalTipAmount;
+            TotalBillElement.value=TotalAmount;
+
+
+           }
+        }
+    </script>
+    
+</body>
+</html>

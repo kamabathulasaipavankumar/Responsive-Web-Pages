@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Swicher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .bg-container{
+            width:600px;
+            margin: auto;
+        }
+        .season-image {
+        width: 100%;
+        height: 85vh;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="bg-container">
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-four-seasons-xs-img.png" class="season-image d-inline d-md-none" id="seasonSmallImage" />
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-four-seasons-md-img.png" class="season-image d-none d-md-inline" id="seasonMediumImage" />
+        <div class="d-flex flex-row justify-content-center mt-4 gap-3">
+            <button class="btn btn-lg btn-success " id="springBtn" onclick="updateSpringSeason()">Spring</button>
+            <button class="btn btn-lg  btn-warning" id="summerBtn" onclick="updateSummerSeason()">Summer</button>
+            <button class="btn btn-lg  btn-danger" id="autumnBtn" onclick="updateAutumnSeason()">Autumn</button>
+            <button class="btn btn-lg  btn-primary" id="winterBtn" onclick="updateWinterSeason()">Winter</button>
+        </div>
+    </div>
+    
+    <script>
+        let smallImageElement = document.getElementById("seasonSmallImage");
+let mediumImageElement = document.getElementById("seasonMediumImage");
+
+let springSmallImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-spring-xs-img.png";
+let springMediumImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-spring-md-img.png";
+let summerSmallImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-summer-xs-img.png";
+let summerMediumImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-summer-md-img.png";
+let autumnSmallImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-autumn-xs-img.png";
+let autumnMediumImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-autumn-md-img.png";
+let winterSmallImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-winter-xs-img.png";
+let winterMediumImage = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-winter-md-img.png";
+
+function updateSpringSeason() {
+    smallImageElement.src = springSmallImage;
+    mediumImageElement.src = springMediumImage;
+}
+
+function updateSummerSeason() {
+    smallImageElement.src = summerSmallImage;
+    mediumImageElement.src = summerMediumImage;
+}
+
+function updateAutumnSeason() {
+    smallImageElement.src = autumnSmallImage;
+    mediumImageElement.src = autumnMediumImage;
+}
+
+function updateWinterSeason() {
+    smallImageElement.src = winterSmallImage;
+    mediumImageElement.src = winterMediumImage;
+}
+    </script>
+</body>
+</html>
