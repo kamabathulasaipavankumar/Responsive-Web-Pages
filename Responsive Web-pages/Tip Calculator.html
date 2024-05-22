@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tip Calculator</title>
+    <title>Discount Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         .bg-container{
@@ -53,7 +53,7 @@
     <div class="bg-container">
         <div>
             <img class="tip-calculator-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/tip-calculator-img.png" />
-            <h1 class="main-heading text-center mt-4 mb-4">Tip Calculator</h1>
+            <h1 class="main-heading text-center mt-4 mb-4">Discount Calculator</h1>
         </div>
         <div class="container">
             <div class="row">
@@ -63,20 +63,20 @@
             </div>
             <div class="row">
             <div class="col-12 col-md-6 mb-4" >
-                <label class="input-label mb-2">PERCENTAGE TIP</label>
-                <input type="text" class="userinput" id="PercentageTip">
+                <label class="input-label mb-2"> DISCOUNT PERCENTAGE </label>
+                <input type="text" class="userinput" id="DiscountPercentage">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 mb-4" >
-                    <label class="input-label mb-2">TIP AMOUNT</label>
-                    <input type="text" class="userinput" id="TipAmount">
+                    <label class="input-label mb-2">DISCOUNT AMOUNT</label>
+                    <input type="text" class="userinput" id="DiscountAmount">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6 mb-4" >
-                        <label class="input-label mb-2">TOTAL</label>
-                        <input type="text" class="userinput" id="Total">
+                        <label class="input-label mb-2">TOTAL BILL</label>
+                        <input type="text" class="userinput" id="TotalBill">
                         </div>
                         <div class="col-12 text-center mt-4">
                             <button class=" Calculate-tip-button btn btn-lg btn-primary" onclick="CalculateTotalBillAmount()">CALCULATE</button>
@@ -88,30 +88,30 @@
     </div>
     <script>
         let BillAmountElement =document.getElementById("BillAmount");
-        let PercentageTipElement =document.getElementById("PercentageTip");
-        let TipAmountElement =document.getElementById("TipAmount");
-        let TotalBillElement =document.getElementById("Total");
+        let DiscountPercentageElement =document.getElementById("DiscountPercentage");
+        let DiscountAmountElement =document.getElementById("DiscountAmount");
+        let TotalBillElement =document.getElementById("TotalBill");
         let ErrorMessageElement =document.getElementById("errormessage");
 
         let errormessage = "Please! Enter a Valid Input";
 
         function CalculateTotalBillAmount(){
             let BillAmountUserInput =BillAmountElement.value;
-            let PercentageTipUserInput =PercentageTipElement.value;
+            let DiscountPercentageUserInput =DiscountPercentageElement.value;
           
            if (BillAmountUserInput ==="") {
             ErrorMessageElement.textContent=errormessage;
-           }else if(PercentageTipUserInput===""){
+           }else if(DiscountPercentageUserInput===""){
             ErrorMessageElement.textContent=errormessage;
            }else{
             ErrorMessageElement.textContent= "";
             let getUserBillAmount= parseInt(BillAmountUserInput);
-            let getTipAmount= parseInt(PercentageTipUserInput);
+            let getDiscountAmount= parseInt(DiscountPercentageUserInput);
 
-            let TotalTipAmount=(getUserBillAmount*getTipAmount)/100;
-            let TotalAmount=getTipAmount+getUserBillAmount;
+            let TotalDiscountAmount=(getUserBillAmount*getDiscountAmount)/100;
+            let TotalAmount=getUserBillAmount-TotalDiscountAmount;
 
-            TipAmountElement.value=TotalTipAmount;
+            DiscountAmountElement.value=TotalDiscountAmount;
             TotalBillElement.value=TotalAmount;
 
 
